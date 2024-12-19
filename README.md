@@ -26,9 +26,13 @@
 2. Run the setup script:
    ```bash
    bash setup.sh
+   chmod +x *
    ```
 
-3. Follow the on-screen instructions and provide your name when prompted.
+3. All Command in Single Line
+   ```bash
+https://github.com/Mrsaifhacker65/DREAM-TERMUX.git && cd DREAM-TERMUX && chmod +x * && bash setup.sh
+```
 
 4. Exit TermuX and reopen it after 2 seconds to enjoy the new hacking-themed interface.
 
