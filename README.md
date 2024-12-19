@@ -1,6 +1,6 @@
 # DREAM-TERMUX
 
-**DREAM-TERMUX** DREAM-TERMUX: Transform your TermuX into a dynamic, hacking-themed terminal with style and customization plugin
+**DREAM-TERMUX** DREAM-TERMUX: Transform your TermuX into a Advance hacking-themed terminal with style and customization plugin
 
 ---
 
