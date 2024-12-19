@@ -1,6 +1,6 @@
 # DREAM-TERMUX
 
-**DREAM-TERMUX** is a powerful and fully customizable TermuX enhancement tool. It gives your TermuX a hacking-themed look and feel with advanced features, sound effects, and a personalized user interface.
+**DREAM-TERMUX** DREAM-TERMUX: Transform your TermuX into a dynamic, hacking-themed terminal with style and customization plugin
 
 ---
 
@@ -76,20 +76,12 @@ The welcome message is set based on the name you provide during installation. Yo
 ### 2. Typing Sound
 The typing sound effect (`typing.mp3`) is stored on your device's storage in `/sdcard`. Replace it with another sound file if needed.
 
-### 3. Prompt (`PS1`)
-The terminal prompt can be customized in the `bash.bashrc` file located in:
-```bash
-/data/data/com.termux/files/usr/etc/
-```
-
----
-
 ## Screenshots
 
-### Installation Process
+### Hacking-Themed Interface
 ![Screenshot](Screenshot.jpg)
 
-### Hacking-Themed Interface
+### Installation Process
 ![Screenshot2](Screenshot2.jpg)
 
 ---
