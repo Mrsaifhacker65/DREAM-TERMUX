@@ -30,7 +30,7 @@
    ```
 3. ## All Commands in Single Line
 ```
-apt update && apt upgrade && pkg install git && git clone https://https://github.com/Mrsaifhacker65/DREAM-TERMUX.git && cd DREAM-TERMUX && chmod +x * && bash setup.sh
+apt update && apt upgrade && pkg install git && git clone https://github.com/Mrsaifhacker65/DREAM-TERMUX.git && cd DREAM-TERMUX && chmod +x * && bash setup.sh
 ```
 
 4. Exit TermuX and reopen it after 2 seconds to enjoy the new hacking-themed interface.
