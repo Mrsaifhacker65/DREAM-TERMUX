@@ -180,4 +180,4 @@ echo
 echo
 echo -e "\033[1;32mTo restore TermuX to its original state, run: ./revert.sh\033[0m"
 echo
-ech
+echo
