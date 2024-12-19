@@ -9,7 +9,7 @@ fi
 
 # Update and upgrade packages
 echo -e "\033[1;35mUpdating and upgrading packages...\033[0m"
-apt update && apt upgrade -y
+apt-get update -y && apt-get upgrade -y
 
 termux-setup-storage 
 
@@ -28,25 +28,29 @@ else
 fi
 clear
 
-# Function to display progress bar
+# Function to display progress bar during a command execution
 progress_bar() {
-    local percent=0  # Initialize the percent variable
-    echo -e "\033[1;35m$1\033[0m"
-    sleep 1
-    while [ $percent -le 100 ]; do
+    local pid=$1  # Process ID of the running command
+    local percent=0
+    echo -ne "\033[1;35m$2\033[0m\n"  # Display message in purple
+
+    # Loop until the process is running
+    while kill -0 "$pid" 2>/dev/null; do
         echo -ne "["
-        for ((i=0; i<percent; i+=2)); do echo -n "="; done
-        for ((i=percent; i<100; i+=2)); do echo -n " "; done
+        for ((i = 0; i < percent; i += 2)); do echo -n "="; done
+        for ((i = percent; i < 100; i += 2)); do echo -n " "; done
         echo -n "] $percent%\r"
         sleep 0.1
-        ((percent+=2))
+        ((percent = (percent + 2) % 102))  # Loop percent back to 0 after 100
     done
-    echo ""
+    echo -ne "[==================================================] 100%\n"
 }
 
-# Function to install a package and check for success
+# Function to install a package with progress bar
 install_package() {
-    pkg install -y $1 &>/dev/null
+    echo -e "\033[1;36mInstalling $1...\033[0m"
+    pkg install -y "$1" &>/dev/null &  # Run installation in the background
+    progress_bar $! "Installing $1"    # Show progress bar while installation runs
     if [ $? -eq 0 ]; then
         echo -e "\033[1;32m$1 installed successfully!\033[0m"
     else
@@ -55,9 +59,11 @@ install_package() {
     fi
 }
 
-# Function to install gem and check for success
+# Function to install gem with progress bar
 install_gem() {
-    gem install $1 &>/dev/null
+    echo -e "\033[1;36mInstalling $1 gem...\033[0m"
+    gem install "$1" &>/dev/null &  # Run gem installation in the background
+    progress_bar $! "Installing $1 gem"  # Show progress bar while gem installs
     if [ $? -eq 0 ]; then
         echo -e "\033[1;32m$1 gem installed successfully!\033[0m"
     else
@@ -66,18 +72,16 @@ install_gem() {
     fi
 }
 
-# Begin installation
+# Begin installation process
 echo -e "\033[1;36mStarting the installation process...\033[0m"
 
-# Install figlet, python2, and ruby
-progress_bar "Installing mpv, figlet, python2, and ruby packages..."
+# Install packages
 install_package "mpv"
 install_package "figlet"
 install_package "python2"
 install_package "ruby"
 
 # Install lolcat gem
-progress_bar "Installing lolcat gem..."
 install_gem "lolcat"
 
 # Finish
@@ -176,4 +180,4 @@ echo
 echo
 echo -e "\033[1;32mTo restore TermuX to its original state, run: ./revert.sh\033[0m"
 echo
-echo
+ech
